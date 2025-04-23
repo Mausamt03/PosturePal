@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Posture Detection System
 
 A real-time posture detection system using computer vision to help maintain good sitting posture and prevent neck strain.
@@ -130,3 +131,7 @@ uvicorn main:app --reload
 
 
 
+=======
+# PosturePal
+PosturePal monitors your posture using real-time video analysis and AI. Whether you're working from home, gaming, or studying — we've got your back (literally).
+>>>>>>> 36e17a881e89f7693cd86f029df78163e483ef21
