@@ -297,13 +297,17 @@
         <p class="username">Welcome</p>
       </div>
       <nav class="nav-links">
-        <button>Dashboard</button>
+        <button onclick="location.href='dashboard.html'">Dashboard</button>
         <button>Settings</button>
         <button>Logs</button>
       </nav>
       <div class="bottom-links">
         <button id="themeToggle">🌓 Theme</button>
-        <button class="logout">Log out</button>
+        <!-- Logout button -->
+<button class="logout" id="logoutbtn" >
+  Logout
+</button>
+
       </div>
     </aside>
 
@@ -389,5 +393,42 @@
       location.reload();
     });
   </script>
+  
+
+  <script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_bW9kZWwtd2Fob28tOTQuY2xlcmsuYWNjb3VudHMuZGV2JA"
+  src="https://model-wahoo-94.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+  type="text/javascript">
+</script>
+
+<script>
+  window.addEventListener('load', async () => {
+    try {
+      await Clerk.load();
+
+      if (!Clerk.user) {
+        window.location.href = 'login.html'; // or index.html depending on your flow
+        return;
+      }
+
+      const logoutBtn = document.getElementById('logoutbtn');
+      logoutBtn.addEventListener('click', async () => {
+        try {
+          await Clerk.signOut();
+          window.location.href = 'index.html'; // ✅ Update to redirect correctly
+        } catch (err) {
+          console.error('Logout failed:', err);
+          alert('Something went wrong while logging out.');
+        }
+      });
+    } catch (err) {
+      console.error('Clerk initialization error:', err);
+    }
+  });
+</script>
+
+  
 </body>
 </html>

@@ -490,6 +490,7 @@
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
+        display: none;
       }
 
       nav a {
@@ -517,9 +518,10 @@
       <a href="#contact">Contact</a>
     </nav>
     <div>
-      <button class="cta-button" onclick="location.href='posture.html'">Start Detection</button>
+      <button class="cta-button" id="cta--button" onclick="location.href='clerk.html'">Start Detection</button>
       <span id="darkToggle" class="dark-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</span>
     </div>
+    
   </header>
 
   <section class="main-section" id="home">
@@ -527,7 +529,7 @@
     <p><strong>Mindfulness and real-time posture monitoring</strong> for desk workers, students, and anyone who cares about spinal health.</p>
     <h1>Sit Smart. Work Better.</h1>
     <div class="price-tag">Get PosturePal+</div><br><br>
-    <button class="start-button" onclick="location.href='posture.html'">Start Detection</button>
+    <button class="cta-button" id="cta--button" onclick="location.href='clerk.html'">Start Detection</button>
   </section>
 
   <section class="reviews-section">
@@ -710,7 +712,29 @@ document.querySelector(".right-btn").addEventListener("click", () => {
   updateSlider(currentIndex);
 });
 
+
     
   </script>
+
+  <script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_bW9kZWwtd2Fob28tOTQuY2xlcmsuYWNjb3VudHMuZGV2JA"
+  src="https://model-wahoo-94.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+  type="text/javascript">
+</script>
+
+<!-- Rest of your HTML file -->
+
+<script>
+  window.addEventListener('load', async function () {
+    await Clerk.load()
+
+    console.log('ClerkJS is loaded')
+  })
+</script>
+  
+
+
 </body>
 </html>

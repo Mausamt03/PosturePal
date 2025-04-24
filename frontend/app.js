@@ -315,3 +315,32 @@ toggleAlertBtn.addEventListener('click', () => {
         '<span class="alert-icon">🔕</span> Alerts Disabled';
 }); 
 
+// Login
+function login() {
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+  
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        document.getElementById("auth-message").innerText = "Logged in!";
+        // Redirect or load app UI
+      })
+      .catch((error) => {
+        document.getElementById("auth-message").innerText = error.message;
+      });
+  }
+  
+  // Signup
+  function signup() {
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+  
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        document.getElementById("auth-message").innerText = "Account created!";
+      })
+      .catch((error) => {
+        document.getElementById("auth-message").innerText = error.message;
+      });
+  }
+  
